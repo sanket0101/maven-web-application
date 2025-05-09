@@ -4,16 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MithunTechnologies- Home Page</title>
-<link href="images/mithunlogo.jpg" rel="icon">
+<title>Demo App- Home Page</title>
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to Mithun Technologies</h1>
-<h1 align="center">Phone Number: +91 9980923216</h1>
-<h1 align="center">Mithun Technologies is a Very Good Training Center for DevOps, Cloud, Kubernetes and Terraform</h1>
+<h1 align="center">Welcome to Sanket's demo App</h1>
+<h1 align="center">Phone Number: +91 7875847153</h1>
+<h1 align="center">Good Morning Everyone</h1>
 
-<h1 align="center">Trainer Name: Bhaskar Reddy Lacchannagari</h1>
+<h1 align="center">We are learning DevOps</h1>
 
 <hr>
 <br>
@@ -32,27 +31,6 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 <h1><h3> Client Side IP Address </h3><br>
 <%out.print( "Client IP Address  :: "+request.getRemoteAddr()); %><br>
 <%out.print( "Client Name Host :: "+request.getRemoteHost() );%><br></h1>
-<hr>
-<div style="text-align: center;">
-	<span>
-		<img src="images/mithunlogo.jpg" alt="" width="100">
-	</span>
-	<span style="font-weight: bold;">
-		Mithun Technologies, 
-		Marathahalli,
-		Bengaluru,
-		+91 9980923216 and 
-		Devopstrainingblr@Gmail.com
-		<br>
-		<a href="mailto:Devopstrainingblr@Gmail.com">Mail to Mithun Technologies</a>
-	</span>
-</div>
-<hr>
-	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
-<hr>
-<hr>
-<p align=center>Mithun Technologies - Consultant, Training and Development Center.</p>
-<p align=center><small>Copyrights 2025 by <a href="http://mithuntechnologies.com/">Mithun Technologies,Bengaluru</a> </small></p>
 
 </body>
 </html>
