@@ -97,13 +97,13 @@
 	    <repository>
 	        <id>nexus</id>
 	        <name>HDFC Release Repository</name>
-	        <url>http://65.0.129.26:8081/repository/HDFC-release-repo/</url>
+	        <url>http://13.233.97.17:8081/repository/HDFC-release-repo/</url>
 	    </repository>
 		
 	    <snapshotRepository>
 	        <id>nexus</id>
 	        <name>HDFC Snapshot Repository</name>
-	        <url>http://65.0.129.26:8081/repository/HDFC-SNAPSHOT-repo/</url>
+	        <url>http://13.233.97.17:8081/repository/HDFC-SNAPSHOT-repo/</url>
 	    </snapshotRepository>
 		
 	</distributionManagement>
