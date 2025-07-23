@@ -1,75 +1,69 @@
 pipeline{
-
-agent any
-
-tools{
-maven 'maven3.8.2'
-
-}
-
-triggers{
-pollSCM('* * * * *')
-}
-
-options{
-timestamps()
-buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
-}
-
-stages{
-
-  stage('CheckOutCode'){
-    steps{
-    git branch: 'development', credentialsId: '957b543e-6f77-4cef-9aec-82e9b0230975', url: 'https://github.com/devopstrainingblr/maven-web-application-1.git'
+          
+		  agent any
+		  
+		  tools {
+		    maven 'maven9.10'
+		    git 'Default'
+		  }
+		  
+    stages{
 	
-	}
-  }
-  
-  stage('Build'){
+	 stage('gitCheckOut'){
+	  steps{
+	  git branch: 'main', url: 'https://github.com/sanket0101/maven-web-application.git'
+	  }
+	 }
+	
+ stage('mavenBuild'){
   steps{
-  sh  "mvn clean package"
+  sh "mvn clean package"
   }
-  }
-/*
- stage('ExecuteSonarQubeReport'){
-  steps{
-  sh  "mvn clean sonar:sonar"
-  }
-  }
-  
-  stage('UploadArtifactsIntoNexus'){
-  steps{
-  sh  "mvn clean deploy"
-  }
-  }
-  
-  stage('DeployAppIntoTomcat'){
-  steps{
-  sshagent(['bfe1b3c1-c29b-4a4d-b97a-c068b7748cd0']) {
-   sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@35.154.190.162:/opt/apache-tomcat-9.0.50/webapps/"    
-  }
-  }
-  }
-  */
-}//Stages Closing
-
-post{
-
- success{
- emailext to: 'devopstrainingblr@gmail.com,mithuntechnologies@yahoo.com',
-          subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          replyTo: 'devopstrainingblr@gmail.com'
  }
  
- failure{
- emailext to: 'devopstrainingblr@gmail.com,mithuntechnologies@yahoo.com',
-          subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          replyTo: 'devopstrainingblr@gmail.com'
+ stage('sonarAnalysis'){
+  steps{
+  sh "mvn sonar:sonar"
+  }
  }
- 
-}
-
-
-}//Pipeline closing
+	
+	 stage('nexusUpload'){
+     steps{
+     sh "mvn deploy"
+     }
+    }
+	
+    stage('tomcatHosting'){
+     steps{
+      sshagent(['tomcatkey']) {
+        sh """
+  	  scp -o StrictHostKeyChecking=no target/maven-web-application.war ubuntu@3.111.23.119:/opt/apache-tomcat-9.0.107/webapps/
+  	  """
+    }
+     }
+    }
+	
+	} //stages closing
+	
+	post {
+	          success {
+	              slackSend (
+	                  color: 'good', // green
+	                  message: "✅ *Build Success* - Job: ${env.JOB_NAME}, Build: #${env.BUILD_NUMBER}\n<${env.BUILD_URL}|Click here to view details>"
+	              )
+	          }
+	          failure {
+	              slackSend (
+	                  color: 'danger', // red
+	                  message: "❌ *Build Failed* - Job: ${env.JOB_NAME}, Build: #${env.BUILD_NUMBER}\n<${env.BUILD_URL}|Click here to view details>"
+	              )
+	          }
+	          unstable {
+	              slackSend (
+	                  color: 'warning', // yellow
+	                  message: "⚠️ *Build Unstable* - Job: ${env.JOB_NAME}, Build: #${env.BUILD_NUMBER}\n<${env.BUILD_URL}|Click here to view details>"
+	              )
+	          }
+	      }  
+  
+  } //pipeline closing
