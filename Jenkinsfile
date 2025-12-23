@@ -1,6 +1,9 @@
 pipeline{
   agent any
 
+  tools{
+       maven 'maven_3.9'
+  }
   stages{
 	stage('Checkout'){
 		steps{
@@ -8,5 +11,17 @@ pipeline{
 		}
 
   }
-}
+
+  stage('Build'){
+	steps{
+		sh 'mvn clean package'
+	}
+	}
+
+	stage('Docker build'){
+		steps{
+			sh 'docker build -t 769763824228.dkr.ecr.ap-south-1.amazonaws.com/maven-web-application:${BUILD_NUMBER} .'
+		}
+	}
+  }
 }
