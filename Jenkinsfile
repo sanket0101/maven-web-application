@@ -23,5 +23,13 @@ pipeline{
 			sh 'docker build -t 769763824228.dkr.ecr.ap-south-1.amazonaws.com/maven-web-application:${BUILD_NUMBER} .'
 		}
 	}
+	stage('Authenticate and Push Docker Image to AWS ECR')
+        {
+            steps()
+            {
+                sh 'docker push 769763824228.dkr.ecr.ap-south-1.amazonaws.com/maven-web-application:${BUILD_NUMBER}'
+            }
+        }
+
   }
 }
