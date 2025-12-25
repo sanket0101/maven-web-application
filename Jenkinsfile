@@ -15,8 +15,6 @@ pipeline{
             }
         }
 
-	}
-
 	 stage('Build Artifact using Maven')
         {
             steps()
@@ -32,4 +30,5 @@ pipeline{
                 sh 'docker build -t 1412345567.dkr.ecr.ap-south-1.amazonaws.com/maven-web-application:${BUILD_NUMBER} .'
             }
         }
+	}
 }
