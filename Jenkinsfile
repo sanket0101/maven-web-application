@@ -5,8 +5,6 @@ pipeline{
 	maven 'maven3'
 	}
 
-  
-
   stages
     {
         stage('Checkout Code to Jenkins from GitHub')
@@ -18,4 +16,20 @@ pipeline{
         }
 
 	}
+
+	 stage('Build Artifact using Maven')
+        {
+            steps()
+            {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Build Docker Image')
+        {
+            steps()
+            {
+                sh 'docker build -t 1412345567.dkr.ecr.ap-south-1.amazonaws.com/maven-web-application:${BUILD_NUMBER} .'
+            }
+        }
 }
