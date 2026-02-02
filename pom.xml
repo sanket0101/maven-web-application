@@ -42,7 +42,7 @@
 	<repositories>
     <repository>
         <id>nexus</id>
-        <name>tomcat-snapshot</name>
+        <name>maven-proxy-repo</name>
         <url>http://43.205.95.22:8081/repository/maven-proxy-repo/</url>
     </repository>
 </repositories>
