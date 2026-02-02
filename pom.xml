@@ -27,7 +27,25 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 	</properties>
-
+<distributionManagement>
+	    <repository>
+	        <id>nexus</id>
+	        <name>tomcat-release</name>
+	        <url>http://43.205.95.22:8081/repository/tomcat-release/</url>
+	    </repository>
+	    <snapshotRepository>
+	        <id>nexus</id>
+	        <name>tomcat-snapshot</name>
+	        <url>http://43.205.95.22:8081/repository/tomcat-snapshot/</url>
+	    </snapshotRepository>
+    </distributionManagement>
+	<repositories>
+    <repository>
+        <id>nexus</id>
+        <name>tomcat-snapshot</name>
+        <url>http://43.205.95.22:8081/repository/maven-proxy-repo/</url>
+    </repository>
+</repositories>
 	<dependencies>
 		
 		<dependency>
