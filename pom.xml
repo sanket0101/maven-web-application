@@ -31,19 +31,19 @@
 	    <repository>
 	        <id>nexus</id>
 	        <name>tomcat-release</name>
-	        <url>http://43.205.95.22:8081/repository/tomcat-release/</url>
+	        <url>http://43.205.116.246:8081/repository/tomcat-release/</url>
 	    </repository>
 	    <snapshotRepository>
 	        <id>nexus</id>
 	        <name>tomcat-snapshot</name>
-	        <url>http://43.205.95.22:8081/repository/tomcat-snapshot/</url>
+	        <url>http://43.205.116.246:8081/repository/tomcat-snapshot/</url>
 	    </snapshotRepository>
     </distributionManagement>
 	<repositories>
     <repository>
         <id>nexus</id>
         <name>maven-proxy-repo</name>
-        <url>http://43.205.95.22:8081/repository/maven-proxy-repo/</url>
+        <url>http://43.205.116.246:8081/repository/maven-proxy-repo/</url>
     </repository>
 </repositories>
 	<dependencies>
