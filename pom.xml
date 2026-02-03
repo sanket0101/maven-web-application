@@ -43,7 +43,7 @@
     <repository>
         <id>nexus</id>
         <name>maven-proxy-repo</name>
-        <url>http://43.205.116.246:8081/repository/maven-proxy-repo/</url>
+        <url>http://43.205.116.246:8081/repository/group-repo/</url>
     </repository>
 </repositories>
 	<dependencies>
