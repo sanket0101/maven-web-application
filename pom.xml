@@ -17,6 +17,8 @@
 	</organization>
 <properties>
     <spring.version>5.3.30</spring.version>
+	 <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 	
 <distributionManagement>
