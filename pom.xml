@@ -16,36 +16,20 @@
 		<url>http://nextgenittechnologies.com/</url>
 	</organization>
 
-	<properties>
-		<sonar.host.url>http://13.201.51.220:9000/</sonar.host.url>
-                <sonar.token>squ_27f4cdc993d57d6e42589eb9d4374c38c7276d45</sonar.token>
-		<jdk.version>1.8</jdk.version>
-		<spring.version>5.1.2.RELEASE</spring.version>
-		<junit.version>4.11</junit.version>
-		<log4j.version>1.2.17</log4j.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-	</properties>
+	
 <distributionManagement>
 	    <repository>
 	        <id>nexus</id>
 	        <name>tomcat-release</name>
-	        <url>http://43.205.116.246:8081/repository/tomcat-release/</url>
+	        <url>http://65.2.34.73:8081/repository/tomcat-release/</url>
 	    </repository>
 	    <snapshotRepository>
 	        <id>nexus</id>
 	        <name>tomcat-snapshot</name>
-	        <url>http://43.205.116.246:8081/repository/tomcat-snapshot/</url>
+	        <url>http://65.2.34.73:8081/repository/tomcat-snapshot/</url>
 	    </snapshotRepository>
     </distributionManagement>
-	<repositories>
-    <repository>
-        <id>nexus</id>
-        <name>maven-proxy-repo</name>
-        <url>http://43.205.116.246:8081/repository/group-repo/</url>
-    </repository>
-</repositories>
+
 	<dependencies>
 		
 		<dependency>
