@@ -15,7 +15,9 @@
 		<name>NextGen Technologies</name>
 		<url>http://nextgenittechnologies.com/</url>
 	</organization>
-
+<properties>
+    <spring.version>5.3.30</spring.version>
+</properties>
 	
 <distributionManagement>
 	    <repository>
@@ -85,12 +87,7 @@
 		
 		<!-- provided dependencies -->
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
-		</dependency>
+		
 		<dependency>
 			
 <groupId>commons-email</groupId>
