@@ -10,7 +10,7 @@ COPY pom.xml .
 
 RUN mvn dependency:go-offline
 
-# Copy source code
+# Copy source code from repo
 COPY src ./src
 
 # Build WAR
