@@ -1,5 +1,5 @@
 ############################
-# Stage 1 - Build
+# Stage 1 - Building application
 ############################
 FROM maven:3.9.9-eclipse-temurin-11 AS builder
 
